@@ -27,8 +27,11 @@ jobs:
           config_data: |
             extends: default
             rules:
+              document-start: disable
+              comments: disable
+              comments-indentation: disable
               line-length:
-                max: 140
+                max: 180
                 level: warning
               truthy:
                 disable

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opencti-security-context-example
+  namespace: opencti
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: opencti
+  template:
+    metadata:
+      labels:
+        app: opencti
+    spec:
+      serviceAccountName: opencti-sa
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: opencti
+          image: opencti/platform:7.260318.0
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "2Gi"
+            limits:
+              cpu: "2"
+              memory: "4Gi"
+          ports:
+            - containerPort: 8080

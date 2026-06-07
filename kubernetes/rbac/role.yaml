@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: opencti-role
+  namespace: opencti
+rules:
+  - apiGroups: [""]
+    resources:
+      - configmaps
+      - secrets
+      - pods
+      - services
+    verbs:
+      - get
+      - list
+      - watch

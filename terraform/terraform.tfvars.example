@@ -1,0 +1,9 @@
+do_token           = "REPLACE_WITH_DIGITALOCEAN_API_TOKEN"
+ssh_key_name       = "REPLACE_WITH_EXISTING_DO_SSH_KEY_NAME"
+admin_allowed_ipv4 = "REPLACE_WITH_YOUR_PUBLIC_IP/32"
+
+project_name       = "secure-opencti"
+region             = "sfo3"
+droplet_size       = "s-4vcpu-8gb"
+droplet_image      = "ubuntu-22-04-x64"
+enable_http_https  = true

@@ -1,0 +1,35 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+id_rsa*
+opencti
+secrets/
+*.private.*
+*.backup
+
+# Terraform
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.terraform/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Private backups
+*.private.backup
+*.private.*
+*.backup
+
+# Kubernetes real secrets
+kubernetes/secrets.yaml
+kubernetes/*secrets.yaml

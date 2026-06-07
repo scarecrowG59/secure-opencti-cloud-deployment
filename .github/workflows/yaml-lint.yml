@@ -1,0 +1,34 @@
+name: YAML Lint
+
+on:
+  push:
+    paths:
+      - "**.yml"
+      - "**.yaml"
+      - ".github/workflows/yaml-lint.yml"
+  pull_request:
+    paths:
+      - "**.yml"
+      - "**.yaml"
+      - ".github/workflows/yaml-lint.yml"
+
+jobs:
+  yamllint:
+    name: YAML Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run yamllint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          config_data: |
+            extends: default
+            rules:
+              line-length:
+                max: 140
+                level: warning
+              truthy:
+                disable
